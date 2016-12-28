@@ -1,0 +1,22 @@
+{
+  "name": "csv-exporter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sanatize.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bufferapp/csv-exporter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bufferapp/csv-exporter/issues"
+  },
+  "homepage": "https://github.com/bufferapp/csv-exporter#readme",
+  "dependencies": {
+    "sanitize-html": "^1.13.0"
+  }
+}
