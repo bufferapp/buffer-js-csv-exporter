@@ -22,16 +22,25 @@
  */
 export const downloadZip = (fileName, files) => {
   let zip = new JSZip();
+
   addFiles(zip, files);
-  zip.generateAsync({type:"blob"})
-     .then(function(content) {
-       // see FileSaver.js
-    FileSaver.saveAs(content, `${fileName}.zip`);
+
+  let promise = zip.generateAsync({type:"blob"});
+  promise.then(function(content) {
+    // see FileSaver.js
+    return FileSaver.saveAs(content, `${fileName}.zip`);
   });
+
+  return promise;
 }
 
+/**
+ * Downloads a single file to the client.
+ * @param {String} fileName - the name of the file to be downloaded
+ * @param {String} file - File content that can be any one of [insert link to content types]
+ */
 export const downloadFile = (fileName, file) => {
-  FileSaver.saveAs(file, `${file}.csv`);
+  return FileSaver.saveAs(file, `${file}.csv`);
 }
 
 /**
