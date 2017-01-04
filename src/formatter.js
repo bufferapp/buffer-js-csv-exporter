@@ -11,7 +11,7 @@ export const mapListToCSVArray = (mapArray = [], csvHeaders = [], csvKeys = []) 
 
   for (var i = 0; i < mapArray.length; i++) {
     let map = mapArray[i];
-    let row = formatObjectForCSV(map, csvKeys);
+    let row = mapToCSVRow(map, csvKeys);
     rows.push(row);
   }
 
@@ -33,7 +33,7 @@ export const mapToCSVRow = (map = {}, headerKeys = []) => {
 
   for (let i = 0; i < headerKeys.length; i++) {
     let headerKey = headerKeys[i];
-    keyArray      = Array.isArray(headerKey) ? headerKey : [headerKey];
+    let keyArray      = Array.isArray(headerKey) ? headerKey : [headerKey];
     CSVRow[i]     = getNestedKeyValue(map, keyArray);
   }
 
@@ -47,12 +47,12 @@ export const mapToCSVRow = (map = {}, headerKeys = []) => {
  * @return {Value} - nested object value
  */
 export const getNestedKeyValue = (object, key) => {
-  let currentKey = Array.isArray(key) ? key.unshift() : key;
+
+  let currentKey = Array.isArray(key) ? key.shift() : key;
 
   if (!Array.isArray(key) || key.length === 0) {
     return object[currentKey];
+  } else {
+    return getNestedKeyValue(object[currentKey], key);
   }
-
-  return getKey(object[currentKey], key);
-  return value;
 };
