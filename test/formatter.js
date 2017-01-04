@@ -60,7 +60,6 @@ describe('Formatter', function () {
       assert.equal(csvRow[1], expectedResult[1]);
       assert.equal(csvRow.length, expectedResult.length);
     });
-
   });
 
   describe('#getNestedKeyValue()', function () {
