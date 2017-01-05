@@ -1,4 +1,4 @@
-# 🛠 CSV Exporter [![Build Status](https://img.shields.io/travis/bufferapp/buffer-js-csv-exporter.svg?branch=master&style=flat)](https://travis-ci.org/bufferapp/buffer-js-csv-exporter) [![Coverage Status](https://img.shields.io/coveralls/bufferapp/buffer-js-csv-exporter.svg?style=flat)](https://coveralls.io/r/bufferapp/buffer-js-csv-exporter)
+# 🛠 CSV Exporter [![Build Status](https://img.shields.io/travis/bufferapp/buffer-js-csv-exporter.svg?branch=master&style=flat)](https://travis-ci.org/bufferapp/buffer-js-csv-exporter) [![Coverage Status](https://coveralls.io/repos/github/bufferapp/buffer-js-csv-exporter/badge.svg)](https://coveralls.io/github/bufferapp/buffer-js-csv-exporter)
 
 This module is to generate and download CSV files on the client side.
 
