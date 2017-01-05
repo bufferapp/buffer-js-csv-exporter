@@ -1,3 +1,5 @@
+import {sanatizeCSV} from './sanatize.js';
+
 /**
  * Recusively parses CSV file content.
  * @param {Array}  files
@@ -8,9 +10,11 @@
  * @param {Array}  files[].content[].headers
  * @param {Array}  files[].content[].rows
  */
-export const filesToCSV = (files) => {
-  for (var i = 0; i < files.length; i++) {
-    let file = files[i];
+export const filesToCSV = (folderFiles) => {
+  let newFiles = [ ];
+
+  for (var i = 0; i < folderFiles.length; i++) {
+    let file = folderFiles[i];
 
     let {
       folder,
@@ -20,15 +24,16 @@ export const filesToCSV = (files) => {
       rows
     } = file;
 
-    if ( typeof folder === 'string' &&
-         Array.isArray(files) ) {
-      file.files = exportFiles(files);
+    if (typeof folder === 'string' && Array.isArray(files)) {
+      file.files = filesToCSV(files);
     } else if (typeof name === 'string' && headers && rows) {
       file.content = toCSV(headers, rows);
     }
+
+    newFiles.push(file);
   }
 
-  return files;
+  return newFiles;
 };
 
 
