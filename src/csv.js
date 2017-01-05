@@ -24,7 +24,7 @@ export const filesToCSV = (folderFiles) => {
       rows
     } = file;
 
-    if ( typeof folder === 'string' && Array.isArray(files) ) {
+    if (typeof folder === 'string' && Array.isArray(files)) {
       file.files = filesToCSV(files);
     } else if (typeof name === 'string' && headers && rows) {
       file.content = toCSV(headers, rows);

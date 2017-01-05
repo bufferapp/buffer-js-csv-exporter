@@ -20,29 +20,32 @@ describe('CSV', function () {
     rows: [['foo', 'bar'], [3, 4]]
   };
 
-  const expectedSecondaryCSVContent = 'Bar,Qaz\nfoo,bar\n3,4\n';
+  const expectedSecondaryCSVContent = 'Baz,Qaz\nfoo,bar\n3,4\n';
 
   describe('#filesToCSV()', function () {
     const csvFolder = {
       folder: 'csvs',
       files: [{
-        file: 'csv_primary.csv',
-        content: csvPrimary
+        name: 'csv_primary.csv',
+        headers: csvPrimary.headers,
+        rows: csvPrimary.rows
       }, {
-        file: 'csv_secondary.csv',
-        content: csvSecondary
+        name: 'csv_secondary.csv',
+        headers: csvSecondary.headers,
+        rows: csvSecondary.rows
       }]
     };
 
-
-    let files = [csvFolder];
+    let files    = [csvFolder];
     let csvFiles = filesToCSV(files);
 
     it('Should convert files CSV strings', function () {
+      assert.equal(csvFiles[0].files[0].content, expectedPrimaryCSVContent);
+      assert.equal(csvFiles[0].files[1].content, expectedSecondaryCSVContent);
+    });
 
-      console.log(csvFiles);
-
-      // assert.equal();
+    it('Should keep files structure', function () {
+      assert.equal(csvFiles[0].folder, csvFolder.folder);
     });
   });
 
