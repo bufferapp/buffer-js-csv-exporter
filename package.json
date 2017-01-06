@@ -5,7 +5,7 @@
   "main": "sanatize.js",
   "scripts": {
     "test": "mocha ./test/index.js --require babel-core/register",
-    "cover": "istanbul cover _mocha",
+    "cover": "istanbul cover _mocha -- --require babel-core/register",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
