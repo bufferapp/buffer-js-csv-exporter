@@ -4,7 +4,9 @@
   "description": "",
   "main": "sanatize.js",
   "scripts": {
-    "test": "mocha ./test/index.js --require babel-core/register"
+    "test": "mocha ./test/index.js --require babel-core/register",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
